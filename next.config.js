@@ -1,6 +1,9 @@
 const withPWA = require("next-pwa");
 
 module.exports = withPWA({
+  experimental: {
+    optimizeFonts: true,
+  },
   publicRuntimeConfig: {
     apiKey: process.env.API_KEY,
     appId: process.env.APP_ID,
