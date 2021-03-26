@@ -1,0 +1,27 @@
+html {
+  background: #fff;
+  color: #222;
+  font: 62.5% arial, sans-serif;
+  overflow: hidden scroll;
+  word-break: break-all;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+a {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+button,
+img,
+svg {
+  vertical-align: top;
+}
+
+ul {
+  list-style: none;
+}

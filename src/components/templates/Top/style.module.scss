@@ -1,0 +1,54 @@
+@import 'styles/mixins';
+
+.wrapper {
+  background: #f3f3f3;
+}
+
+.header {
+  align-items: center;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px;
+}
+
+.logo {
+  @include caveat;
+  font-size: 3.2rem;
+}
+
+.menuTarget {
+  position: relative;
+}
+
+.userImageWrapper {
+  border-radius: 50%;
+  height: 32px;
+  overflow: hidden;
+  width: 32px;
+}
+
+.userImage {
+  height: 100%;
+  width: 100%;
+}
+
+.menu {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 0 8px #ccc;
+  display: grid;
+  padding: 16px;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 4px);
+  width: 240px;
+  z-index: 2;
+}
+
+.comicListWrapper {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+}

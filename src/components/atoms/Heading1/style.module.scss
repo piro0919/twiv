@@ -1,0 +1,6 @@
+@import 'styles/mixins';
+
+.heading1 {
+  @include caveat;
+  font-size: 8rem;
+}

@@ -1,0 +1,40 @@
+@import 'sass-mq';
+@import 'styles/constants';
+
+.wrapper {
+  cursor: pointer;
+  display: grid;
+  gap: 8px;
+  @include mq($until: tablet) {
+    grid-template-columns: 142px 1fr;
+  }
+}
+
+.thumbnailWrapper {
+  position: relative;
+}
+
+.thumbnailWrapper::before {
+  content: '';
+  display: block;
+  padding: 56.25% 0 0;
+}
+
+.thumbnail {
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.title {
+  font-size: 1.4rem;
+}
+
+.auther {
+  color: #6b6b6b;
+  font-size: 1.3rem;
+  margin: 4px 0 0;
+}

@@ -1,0 +1,9 @@
+{
+  "background_color": "#FFFFFF",
+  "display": "standalone",
+  "name": "next-pwa",
+  "orientation": "portrait",
+  "short_name": "next-pwa",
+  "start_url": "/",
+  "theme_color": "#FFFFFF"
+}

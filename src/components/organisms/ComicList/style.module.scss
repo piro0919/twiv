@@ -1,0 +1,25 @@
+@import 'sass-mq';
+@import 'styles/constants';
+
+.list {
+  align-content: flex-start;
+  display: grid;
+  grid-template: auto / repeat(auto-fit, minmax(20%, 240px));
+  justify-content: center;
+  max-width: 1300px;
+  width: 100%;
+  @include mq($until: tablet) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.item {
+  margin: 0 8px;
+  padding: 12px 0;
+}
+
+.item:not(:first-child) {
+  @include mq($until: tablet) {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}
