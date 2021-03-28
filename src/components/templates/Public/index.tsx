@@ -1,40 +1,27 @@
 import useWindowSize from "@rooks/use-window-size";
-import React, { CSSProperties, FC, useEffect, useState } from "react";
+import React, { CSSProperties, FC, useMemo } from "react";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
-import NoSSR from "react-no-ssr";
 import styles from "./style.module.scss";
 import Heading1 from "components/atoms/Heading1";
-import firebase from "libs/firebase";
+import firebaseAuth from "libs/firebaseAuth";
 import uiConfig from "libs/uiConfig";
 
-export type PublicProps = {
-  firebaseAuth: firebase.auth.Auth;
-};
-
-const Public: FC<PublicProps> = ({ firebaseAuth }: PublicProps) => {
-  const [wrapperStyle, setWrapperStyle] = useState<CSSProperties>();
+const Public: FC = () => {
   const { innerHeight } = useWindowSize();
-
-  useEffect(() => {
-    setWrapperStyle({ minHeight: innerHeight });
-  }, [innerHeight]);
+  const wrapperStyle = useMemo<CSSProperties>(
+    () => ({ minHeight: innerHeight }),
+    [innerHeight]
+  );
 
   return (
-    <NoSSR>
-      <div className={styles.wrapper} style={wrapperStyle}>
-        <div className={styles.inner}>
-          <div className={styles.heading1Wrapper}>
-            <Heading1 />
-          </div>
-          <div className={styles.authWrapper}>
-            <StyledFirebaseAuth
-              firebaseAuth={firebaseAuth}
-              uiConfig={uiConfig}
-            />
-          </div>
-        </div>
+    <div className={styles.wrapper} style={wrapperStyle}>
+      <header>
+        <StyledFirebaseAuth firebaseAuth={firebaseAuth} uiConfig={uiConfig} />
+      </header>
+      <div>
+        <Heading1 />
       </div>
-    </NoSSR>
+    </div>
   );
 };
 

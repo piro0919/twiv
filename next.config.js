@@ -17,8 +17,10 @@ module.exports = withPWA({
     storageBucket: process.env.STORAGE_BUCKET,
   },
   pwa: {
-    dest: "public",
+    // dest: "public",
     disable: process.env.NODE_ENV === "development",
+    register: true,
+    sw: "/sw.js",
   },
   webpack: (config) => {
     config.resolve.alias.firebaseui = "firebaseui-ja";

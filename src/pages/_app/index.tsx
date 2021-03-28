@@ -3,6 +3,7 @@ import { AppProps } from "next/app";
 import Head from "next/head";
 import React, { FC } from "react";
 import "../../styles/global.scss";
+import NoSSR from "react-no-ssr";
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }: AppProps) => (
   <>
@@ -12,7 +13,9 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }: AppProps) => (
         rel="stylesheet"
       />
     </Head>
-    <Component {...pageProps} />
+    <NoSSR>
+      <Component {...pageProps} />
+    </NoSSR>
   </>
 );
 

@@ -33,17 +33,10 @@
   width: 100%;
 }
 
-.menu {
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: 0 0 8px #ccc;
-  display: grid;
-  padding: 16px;
+.menuWrapper {
   position: absolute;
   right: 0;
   top: calc(100% + 4px);
-  width: 240px;
   z-index: 2;
 }
 

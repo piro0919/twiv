@@ -1,5 +1,5 @@
 import "firebase/auth";
-import "firebase/analytics";
+// import "firebase/analytics";
 import { useEffect, useState } from "react";
 import firebase from "libs/firebase";
 import { deleteIdToken, setIdToken } from "libs/idToken";
@@ -14,7 +14,7 @@ const useAuth = (): AuthData => {
   const [auth, setAuth] = useState<AuthData | undefined>(undefined);
 
   useEffect(() => {
-    firebase.analytics();
+    // firebase.analytics();
 
     const unsubscribe = firebase.auth().onAuthStateChanged(async (user) => {
       if (user) {
