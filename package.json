@@ -1,4 +1,9 @@
 {
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
   "dependencies": {
     "@rooks/use-outside-click-ref": "4.10.0",
     "@rooks/use-window-size": "4.10.0",
@@ -23,6 +28,8 @@
     "use-pwa": "0.3.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "12.0.1",
+    "@commitlint/config-conventional": "12.0.1",
     "@types/node": "14.14.37",
     "@types/react": "17.0.3",
     "@types/react-no-ssr": "1.1.1",
@@ -38,6 +45,9 @@
     "eslint-plugin-react-hooks": "4.2.0",
     "eslint-plugin-sort-keys-shorthand": "2.1.0",
     "eslint-watch": "7.0.0",
+    "husky": "^6.0.0",
+    "lint-staged": "10.5.4",
+    "npm-run-all": "4.1.5",
     "prettier": "2.2.1",
     "stylelint": "13.12.0",
     "stylelint-config-css-modules": "2.2.0",
@@ -131,6 +141,10 @@
       }
     }
   },
+  "lint-staged": {
+    "*.scss": "npm run lint:style",
+    "*.ts,*.tsx": "npm run lint"
+  },
   "name": "twiv",
   "private": true,
   "scripts": {
@@ -139,7 +153,9 @@
     "lint": "eslint . --ext .ts,.tsx --fix",
     "lint:style": "stylelint '**/*.scss' --fix",
     "lint:watch": "esw . --color --ext .ts,.tsx --fix --watch",
-    "start": "next start"
+    "prepare": "husky install",
+    "start": "next start",
+    "test": "npm-run-all --parallel lint lint:style"
   },
   "stylelint": {
     "extends": [
