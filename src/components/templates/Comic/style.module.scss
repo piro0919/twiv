@@ -1,3 +1,113 @@
+@import 'sass-mq';
+@import 'styles/constants';
+
+.wrapper {
+  display: grid;
+  grid-template: 1fr auto / 1fr;
+}
+
 .heading1Wrapper {
   display: none;
+}
+
+.inner {
+  display: flex;
+  justify-content: center;
+  margin: 16px;
+  @include mq($until: tablet) {
+    margin: 8px;
+  }
+}
+
+.inner2 {
+  align-items: flex-start;
+  display: grid;
+  gap: 16px;
+  grid-template: auto / 1fr 320px;
+  max-width: 1300px;
+  width: 100%;
+  @include mq($until: desktop) {
+    grid-template-columns: 1fr 280px;
+  }
+  @include mq($until: tablet) {
+    gap: 8px;
+    grid-template-columns: 1fr;
+  }
+}
+
+.item {
+  background: #fff;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.detail {
+  grid-column: 1;
+  grid-row: 1 / 2;
+  @include mq($until: desktop) {
+    grid-column: 1 / 3;
+  }
+}
+
+.series {
+  grid-column: 1;
+  grid-row: 2 / 3;
+  @include mq($until: desktop) {
+    grid-column: 1 / 2;
+  }
+  @include mq($until: tablet) {
+    grid-column: 1 / 3;
+  }
+}
+
+.information {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  @include mq($until: desktop) {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+  @include mq($until: tablet) {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+  }
+}
+
+.topWrapper {
+  align-items: center;
+  display: grid;
+  gap: 8px;
+  grid-template: auto / 1fr auto;
+  @include mq($until: tablet) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.buttonsWrapper {
+  display: grid;
+  gap: 8px;
+  grid-template: 1fr / auto auto;
+  @include mq($until: wide) {
+    grid-template-columns: auto;
+  }
+  @include mq($until: tablet) {
+    grid-template-columns: auto auto;
+    justify-content: flex-end;
+  }
+}
+
+.hr {
+  margin: 8px 0 16px;
+}
+
+.topWrapper2 {
+  align-items: center;
+  display: grid;
+  gap: 6px;
+  grid-template: auto / auto 1fr;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
 }

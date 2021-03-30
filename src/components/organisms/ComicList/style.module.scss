@@ -6,16 +6,23 @@
   display: grid;
   grid-template: auto / repeat(auto-fit, minmax(20%, 240px));
   justify-content: center;
+  margin: 8px;
   max-width: 1300px;
   width: 100%;
   @include mq($until: tablet) {
     grid-template-columns: 1fr;
+    margin: 4px;
   }
 }
 
 .item {
-  margin: 0 8px;
-  padding: 12px 0;
+  background: #fff;
+  border-radius: 4px;
+  margin: 8px;
+  padding: 12px;
+  @include mq($until: tablet) {
+    margin: 4px;
+  }
 }
 
 .item:not(:first-child) {

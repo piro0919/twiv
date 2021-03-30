@@ -2,6 +2,7 @@ import { GetServerSideProps } from "next";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 import React, { FC, useCallback, useMemo } from "react";
+import { useBottomScrollListener } from "react-bottom-scroll-listener";
 import usePwa from "use-pwa";
 import Public from "components/templates/Public";
 import Top from "components/templates/Top";
@@ -20,16 +21,7 @@ const Pages: FC<PagesProps> = ({ isSignin }: PagesProps) => {
     () => auth || { displayName: "", photoUrl: "" },
     [auth]
   );
-  const {
-    appinstalled,
-    canInstallprompt,
-    enabledPwa,
-    handleClickOnInstallPrompt,
-  } = usePwa();
-  const disabledPwa = useMemo(
-    () => appinstalled || !canInstallprompt || !enabledPwa,
-    [appinstalled, canInstallprompt, enabledPwa]
-  );
+  const { handleClickOnInstallPrompt } = usePwa();
   const router = useRouter();
   const handleClickLogout = useCallback(async () => {
     await firebase.auth().signOut();
@@ -37,12 +29,20 @@ const Pages: FC<PagesProps> = ({ isSignin }: PagesProps) => {
     router.reload();
   }, [router]);
 
+  useBottomScrollListener(
+    () => {
+      console.log("a");
+    },
+    {
+      triggerOnNoScroll: true,
+    }
+  );
+
   return (
     <>
       <NextSeo noindex={true} />
       {isSignin ? (
         <Top
-          disabledPwa={disabledPwa}
           displayName={displayName}
           handleClickAddHome={handleClickOnInstallPrompt}
           handleClickLogout={handleClickLogout}

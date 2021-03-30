@@ -4,6 +4,7 @@ import Head from "next/head";
 import React, { FC } from "react";
 import "../../styles/global.scss";
 import NoSSR from "react-no-ssr";
+import "../../styles/firebaseui-styling.global.scss";
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }: AppProps) => (
   <>

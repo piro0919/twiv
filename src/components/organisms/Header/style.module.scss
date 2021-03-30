@@ -1,0 +1,40 @@
+@import 'styles/mixins';
+
+.header {
+  align-items: center;
+  background: #fff;
+  display: flex;
+  height: 60px;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.logo {
+  @include caveat;
+  font-size: 3.2rem;
+}
+
+.menuTarget {
+  position: relative;
+}
+
+.userImageWrapper {
+  border-radius: 50%;
+  height: 32px;
+  overflow: hidden;
+  width: 32px;
+}
+
+.userImage {
+  height: 100%;
+  width: 100%;
+}
+
+.menuWrapper {
+  background: #f3f3f3;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 4px);
+  z-index: 2;
+}
+

@@ -15,12 +15,14 @@ const Public: FC = () => {
 
   return (
     <div className={styles.wrapper} style={wrapperStyle}>
-      <header>
+      <header className={styles.header}>
         <StyledFirebaseAuth firebaseAuth={firebaseAuth} uiConfig={uiConfig} />
       </header>
-      <div>
-        <Heading1 />
-      </div>
+      <main className={styles.main}>
+        <div className={styles.heading1Wrapper}>
+          <Heading1 />
+        </div>
+      </main>
     </div>
   );
 };

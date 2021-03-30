@@ -1,9 +1,24 @@
 .wrapper {
+  display: grid;
+  grid-template: 60px 1fr / 1fr;
+}
+
+.header {
   align-items: center;
+  background: #fff;
+  display: flex;
+  height: 60px;
+  justify-content: flex-end;
+  padding: 0 16px;
+}
+
+.main {
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: center;
 }
 
-.header {
-  position: absolute;
+.heading1Wrapper {
+  margin: -30px 0 0;
 }

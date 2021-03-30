@@ -16,30 +16,30 @@ const useAuth = (): AuthData => {
   useEffect(() => {
     // firebase.analytics();
 
-    const unsubscribe = firebase.auth().onAuthStateChanged(async (user) => {
-      if (user) {
-        const idToken = await user.getIdToken();
-        const { displayName, photoURL, refreshToken } = user;
+    const unregisterAuthObserver = firebase
+      .auth()
+      .onAuthStateChanged(async (user) => {
+        if (user) {
+          const idToken = await user.getIdToken();
+          const { displayName, photoURL, refreshToken } = user;
 
-        setIdToken({ idToken });
-        setRefreshToken({ refreshToken });
-        setAuth({
-          displayName,
-          photoUrl: photoURL,
-        });
+          setIdToken({ idToken });
+          setRefreshToken({ refreshToken });
+          setAuth({
+            displayName,
+            photoUrl: photoURL,
+          });
 
-        return;
-      }
+          return;
+        }
 
-      deleteIdToken();
-      deleteRefreshToken();
+        deleteIdToken();
+        deleteRefreshToken();
 
-      setAuth(undefined);
-    });
+        setAuth(undefined);
+      });
 
-    return () => {
-      unsubscribe();
-    };
+    return () => unregisterAuthObserver();
   }, []);
 
   return auth;
