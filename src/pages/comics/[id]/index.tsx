@@ -1,7 +1,7 @@
 import useWindowSize from "@rooks/use-window-size";
-import Comics from "components/templates/Comics";
 import { NextSeo } from "next-seo";
 import React, { FC, useMemo } from "react";
+import Comics from "components/templates/Comics";
 
 const Id: FC = () => {
   const { innerHeight, innerWidth } = useWindowSize();

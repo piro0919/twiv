@@ -1,6 +1,6 @@
-import ComicsItem from "components/molecules/ComicsItem";
 import React, { FC } from "react";
 import styles from "./style.module.scss";
+import ComicsItem from "components/molecules/ComicsItem";
 
 export type ComicsListProps = {
   isNarrow?: boolean;
