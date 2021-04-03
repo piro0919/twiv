@@ -1,7 +1,7 @@
 import useWindowSize from "@rooks/use-window-size";
+import Comics from "components/templates/Comics";
 import { NextSeo } from "next-seo";
 import React, { FC, useMemo } from "react";
-import Comic from "components/templates/Comic";
 
 const Id: FC = () => {
   const { innerHeight, innerWidth } = useWindowSize();
@@ -16,7 +16,7 @@ const Id: FC = () => {
         noindex={true}
         title="【創作】合コンに行ったら女がいなかった話 | Twiv"
       />
-      <Comic
+      <Comics
         pages={[
           null,
           "/hoge/01.png",

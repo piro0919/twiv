@@ -178,6 +178,14 @@
         }
       ],
       "block-closing-brace-empty-line-before": "never",
+      "color-named": [
+        "never",
+        {
+          "ignore": [
+            "inside-function"
+          ]
+        }
+      ],
       "declaration-empty-line-before": "never",
       "indentation": 2,
       "selector-class-pattern": null

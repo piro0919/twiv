@@ -1,11 +1,11 @@
 import React, { FC, useMemo } from "react";
-import ReactComicViewer, {
+import ReactComicsViewer, {
   ComicViewerProps as ReactComicViewerProps,
 } from "react-comic-viewer";
 
-export type ComicViewerProps = Pick<ReactComicViewerProps, "pages">;
+export type ComicsViewerProps = Pick<ReactComicViewerProps, "pages">;
 
-const ComicViewer: FC<ComicViewerProps> = ({ pages }: ComicViewerProps) => {
+const ComicsViewer: FC<ComicsViewerProps> = ({ pages }: ComicsViewerProps) => {
   const text = useMemo(
     () => ({
       expansion: "拡大",
@@ -16,7 +16,7 @@ const ComicViewer: FC<ComicViewerProps> = ({ pages }: ComicViewerProps) => {
     []
   );
 
-  return <ReactComicViewer pages={pages} text={text} />;
+  return <ReactComicsViewer pages={pages} text={text} />;
 };
 
-export default ComicViewer;
+export default ComicsViewer;

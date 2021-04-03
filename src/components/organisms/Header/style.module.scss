@@ -1,8 +1,9 @@
+@import 'styles/constants';
 @import 'styles/mixins';
 
 .header {
   align-items: center;
-  background: #fff;
+  background: map-get($map: $colors, $key: white);
   display: flex;
   height: 60px;
   justify-content: space-between;
@@ -31,7 +32,7 @@
 }
 
 .menuWrapper {
-  background: #f3f3f3;
+  background: map-get($map: $colors, $key: light-gray);
   position: absolute;
   right: 0;
   top: calc(100% + 4px);

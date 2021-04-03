@@ -1,8 +1,10 @@
+@import 'styles/constants';
+
 .wrapper {
   align-items: center;
-  background: #f3cc79;
+  background: map-get($map: $colors, $key: favorite);
   border-radius: 16px;
-  color: #fff;
+  color: map-get($map: $colors, $key: white);
   display: flex;
   font-size: 1.2rem;
   height: 32px;

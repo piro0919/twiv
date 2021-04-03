@@ -1,10 +1,19 @@
+@import 'sass-mq';
+@import 'styles/constants';
+
 .wrapper {
   display: grid;
   grid-template: 1fr auto / 1fr;
 }
 
-.comicListWrapper {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+.comicsListWrapper {
+  border-top: 1px solid map-get($map: $colors, $key: gray);
   display: flex;
   justify-content: center;
+  @include mq($until: mobileLandsc) {
+    padding: 8px;
+  }
+  @include mq($from: mobileLandsc) {
+    padding: 12px;
+  }
 }

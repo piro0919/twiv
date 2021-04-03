@@ -1,0 +1,53 @@
+@import 'sass-mq';
+@import 'styles/constants';
+
+.list {
+  align-content: flex-start;
+  display: grid;
+  justify-content: center;
+  max-width: 1300px;
+  width: 100%;
+  @include mq($until: mobileLandsc) {
+    gap: 8px;
+    grid-template-columns: 1fr;
+  }
+  @include mq($from: mobileLandsc) {
+    gap: 12px;
+  }
+  @include mq($from: mobileLandsc, $until: tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include mq($from: tablet, $until: desktop) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include mq($from: desktop, $until: wide) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @include mq($from: wide) {
+    grid-template: auto / repeat(5, 1fr);
+  }
+}
+
+.narrow {
+  @include mq($until: desktop) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include mq($from: desktop, $until: wide) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include mq($from: wide) {
+    grid-template: auto / repeat(4, 1fr);
+  }
+}
+
+.item {
+  background: map-get($map: $colors, $key: white);
+  border: 1px solid map-get($map: $colors, $key: gray);
+  border-radius: 4px;
+  @include mq($until: mobileLandsc) {
+    padding: 8px;
+  }
+  @include mq($from: mobileLandsc) {
+    padding: 12px;
+  }
+}

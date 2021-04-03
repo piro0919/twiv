@@ -1,7 +1,7 @@
 import useWindowSize from "@rooks/use-window-size";
 import React, { CSSProperties, FC, useMemo } from "react";
 import styles from "./style.module.scss";
-import ComicList from "components/organisms/ComicList";
+import ComicsList from "components/organisms/ComicsList";
 import Footer from "components/organisms/Footer";
 import Header, { HeaderProps } from "components/organisms/Header";
 
@@ -31,8 +31,8 @@ const Top: FC<TopProps> = ({
           handleClickLogout={handleClickLogout}
           photoUrl={photoUrl}
         />
-        <div className={styles.comicListWrapper}>
-          <ComicList />
+        <div className={styles.comicsListWrapper}>
+          <ComicsList />
         </div>
       </div>
       <Footer />

@@ -2,7 +2,7 @@ import Link from "next/link";
 import React, { FC } from "react";
 import styles from "./style.module.scss";
 
-const ComicItem: FC = () => (
+const ComicsItem: FC = () => (
   <Link href="/comics/hoge">
     <div className={styles.wrapper}>
       <div className={styles.thumbnailWrapper}>
@@ -20,4 +20,4 @@ const ComicItem: FC = () => (
   </Link>
 );
 
-export default ComicItem;
+export default ComicsItem;

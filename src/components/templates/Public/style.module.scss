@@ -1,3 +1,5 @@
+@import 'styles/constants';
+
 .wrapper {
   display: grid;
   grid-template: 60px 1fr / 1fr;
@@ -5,7 +7,7 @@
 
 .header {
   align-items: center;
-  background: #fff;
+  background: map-get($map: $colors, $key: white);
   display: flex;
   height: 60px;
   justify-content: flex-end;
@@ -14,7 +16,7 @@
 
 .main {
   align-items: center;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid map-get($map: $colors, $key: gray);
   display: flex;
   justify-content: center;
 }

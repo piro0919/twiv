@@ -1,7 +1,9 @@
+@import 'styles/constants';
+
 .menu {
-  border: 1px solid #ccc;
+  border: 1px solid map-get($map: $colors, $key: gray);
   border-radius: 4px;
-  box-shadow: 0 0 8px #ccc;
+  box-shadow: 0 0 8px map-get($map: $colors, $key: gray);
   display: grid;
   gap: 12px;
   grid-template: auto / repeat(3, auto);
@@ -10,7 +12,8 @@
 
 .button {
   align-items: center;
-  background: #fff;
+  background: map-get($map: $colors, $key: white);
+  border: 1px solid map-get($map: $colors, $key: gray);
   border-radius: 4px;
   display: flex;
   flex-direction: column;

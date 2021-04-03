@@ -1,6 +1,19 @@
 $mq-breakpoints: (
   mobile: 375px,
+  mobileLandsc: 480px,
   tablet: 740px,
   desktop: 980px,
   wide: 1300px,
+);
+
+$mq-show-breakpoints: (mobile, mobileLandsc, tablet, desktop, wide);
+
+$colors: (
+  black: #333,
+  dark-gray: #6b6b6b,
+  favorite: #f3cc79,
+  gray: #e5e5e5,
+  light-gray: #f3f3f3,
+  twitter: #00aced,
+  white: #fff
 );

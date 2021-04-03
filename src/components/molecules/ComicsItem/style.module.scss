@@ -5,7 +5,7 @@
   cursor: pointer;
   display: grid;
   gap: 8px;
-  @include mq($until: tablet) {
+  @include mq($until: mobileLandsc) {
     grid-template-columns: 142px 1fr;
   }
 }
@@ -34,7 +34,7 @@
 }
 
 .auther {
-  color: #6b6b6b;
+  color: map-get($map: $colors, $key: dark-gray);
   font-size: 1.3rem;
   margin: 4px 0 0;
 }

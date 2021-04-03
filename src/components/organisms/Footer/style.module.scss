@@ -1,6 +1,8 @@
+@import 'styles/constants';
+
 .footer {
-  background: #333;
-  color: #fff;
+  background: map-get($map: $colors, $key: black);
+  color: map-get($map: $colors, $key: white);
   font-size: 1.2rem;
   padding: 16px;
 }

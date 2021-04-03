@@ -4,7 +4,7 @@ import styles from "./style.module.scss";
 
 const TweetButton: FC = () => (
   <TwitterShareButton
-    hashtags={["【創作】合コンに行ったら女がいなかった話", "twiv"]}
+    hashtags={["合コンに行ったら女がいなかった話"]}
     url="https://www.google.co.jp/"
   >
     <div className={styles.inner}>

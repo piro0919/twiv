@@ -1,0 +1,14 @@
+@import 'styles/constants';
+
+.topWrapper2 {
+  align-items: center;
+  display: grid;
+  gap: 6px;
+  grid-template: auto / auto 1fr;
+}
+
+.hr {
+  border-bottom: 0;
+  border-top: 1px  solid map-get($map: $colors, $key: dark-gray);
+  margin: 8px 0 16px;
+}

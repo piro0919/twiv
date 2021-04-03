@@ -1,0 +1,65 @@
+@import 'sass-mq';
+@import 'styles/constants';
+
+.topWrapper {
+  align-items: center;
+  display: grid;
+  gap: 8px;
+  @include mq($until: tablet) {
+    grid-template-columns: 1fr;
+  }
+  @include mq($from: tablet) {
+    grid-template-columns: 1fr auto;
+  }
+}
+
+.buttonsWrapper {
+  display: grid;
+  gap: 8px;
+  @include mq($until: tablet) {
+    grid-template-columns: auto auto;
+    justify-content: flex-end;
+  }
+  @include mq($from: tablet, $until: wide) {
+    grid-template-columns: auto;
+  }
+  @include mq($from: wide) {
+    grid-template-columns: repeat(2, auto);
+  }
+}
+
+.hr {
+  border-bottom: 0;
+  border-top: 1px solid map-get($map: $colors, $key: dark-gray);
+  margin: 8px 0 16px;
+}
+
+.userWrapper {
+  align-items: center;
+  display: grid;
+  gap: 16px;
+  grid-template: auto / auto 1fr auto;
+  justify-content: space-between;
+}
+
+.userImageWrapper {
+  border-radius: 50%;
+  height: 48px;
+  overflow: hidden;
+  width: 48px;
+}
+
+.userImage {
+  height: 100%;
+  width: 100%;
+}
+
+.userName {
+  font-size: 1.4rem;
+}
+
+.snsWrapper {
+  display: grid;
+  gap: 12px;
+  grid-auto-flow: column;
+}
