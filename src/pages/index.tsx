@@ -21,13 +21,29 @@ const Pages: FC<PagesProps> = ({ isSignin }: PagesProps) => {
     () => auth || { displayName: "", photoUrl: "" },
     [auth]
   );
-  const { handleClickOnInstallPrompt } = usePwa();
+  const {
+    appinstalled,
+    canInstallprompt,
+    enabledPwa,
+    enabledUpdate,
+    isPwa,
+    showInstallPrompt,
+    unregister,
+  } = usePwa();
   const router = useRouter();
   const handleClickLogout = useCallback(async () => {
     await firebase.auth().signOut();
 
     router.reload();
   }, [router]);
+  const canAddHome = useMemo(() => !appinstalled && canInstallprompt, [
+    appinstalled,
+    canInstallprompt,
+  ]);
+  const enabledAddHome = useMemo(() => enabledPwa && !isPwa, [
+    enabledPwa,
+    isPwa,
+  ]);
 
   useBottomScrollListener(
     () => {
@@ -43,9 +59,14 @@ const Pages: FC<PagesProps> = ({ isSignin }: PagesProps) => {
       <NextSeo noindex={true} />
       {isSignin ? (
         <Top
+          canAddHome={canAddHome}
+          canUpdate={enabledUpdate}
           displayName={displayName}
-          handleClickAddHome={handleClickOnInstallPrompt}
+          enabledAddHome={enabledAddHome}
+          enabledUpdate={isPwa}
+          handleClickAddHome={showInstallPrompt}
           handleClickLogout={handleClickLogout}
+          handleClickUpdate={unregister}
           photoUrl={photoUrl}
         />
       ) : (

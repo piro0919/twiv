@@ -7,13 +7,26 @@ import Header, { HeaderProps } from "components/organisms/Header";
 
 export type TopProps = Pick<
   HeaderProps,
-  "displayName" | "handleClickAddHome" | "handleClickLogout" | "photoUrl"
+  | "canAddHome"
+  | "canUpdate"
+  | "displayName"
+  | "enabledAddHome"
+  | "enabledUpdate"
+  | "handleClickAddHome"
+  | "handleClickLogout"
+  | "handleClickUpdate"
+  | "photoUrl"
 >;
 
 const Top: FC<TopProps> = ({
+  canAddHome,
+  canUpdate,
   displayName,
+  enabledAddHome,
+  enabledUpdate,
   handleClickAddHome,
   handleClickLogout,
+  handleClickUpdate,
   photoUrl,
 }: TopProps) => {
   const { innerHeight } = useWindowSize();
@@ -26,9 +39,14 @@ const Top: FC<TopProps> = ({
     <div className={styles.wrapper} style={wrapperStyle}>
       <div>
         <Header
+          canAddHome={canAddHome}
+          canUpdate={canUpdate}
           displayName={displayName}
+          enabledAddHome={enabledAddHome}
+          enabledUpdate={enabledUpdate}
           handleClickAddHome={handleClickAddHome}
           handleClickLogout={handleClickLogout}
+          handleClickUpdate={handleClickUpdate}
           photoUrl={photoUrl}
         />
         <div className={styles.comicsListWrapper}>

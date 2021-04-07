@@ -13,6 +13,11 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }: AppProps) => (
         href="https://fonts.googleapis.com/css2?family=Caveat&display=swap&text=Twiv"
         rel="stylesheet"
       />
+      <style global jsx>{`
+        html body::before {
+          display: ${process.env.NODE_ENV === "development" ? "block" : "none"};
+        }
+      `}</style>
     </Head>
     <NoSSR>
       <Component {...pageProps} />

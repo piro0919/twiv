@@ -5,16 +5,27 @@ import styles from "./style.module.scss";
 
 export type HeaderProps = Pick<
   MenuProps,
-  "handleClickAddHome" | "handleClickLogout"
+  | "canAddHome"
+  | "canUpdate"
+  | "enabledAddHome"
+  | "enabledUpdate"
+  | "handleClickAddHome"
+  | "handleClickLogout"
+  | "handleClickUpdate"
 > & {
   displayName: string;
   photoUrl: string;
 };
 
 const Header: FC<HeaderProps> = ({
+  canAddHome,
+  canUpdate,
   displayName,
+  enabledAddHome,
+  enabledUpdate,
   handleClickAddHome,
   handleClickLogout,
+  handleClickUpdate,
   photoUrl,
 }: HeaderProps) => {
   const [isShowMenu, setIsShowMenu] = useState(false);
@@ -42,8 +53,13 @@ const Header: FC<HeaderProps> = ({
         {isShowMenu ? (
           <div className={styles.menuWrapper} ref={ref}>
             <Menu
+              canAddHome={canAddHome}
+              canUpdate={canUpdate}
+              enabledAddHome={enabledAddHome}
+              enabledUpdate={enabledUpdate}
               handleClickAddHome={handleClickAddHome}
               handleClickLogout={handleClickLogout}
+              handleClickUpdate={handleClickUpdate}
             />
           </div>
         ) : null}
