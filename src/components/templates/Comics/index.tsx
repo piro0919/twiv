@@ -10,9 +10,16 @@ import ComicsViewer, {
 } from "components/organisms/ComicsViewer";
 import Footer from "components/organisms/Footer";
 
-export type ComicsProps = Pick<ComicsViewerProps, "pages">;
+export type ComicsProps = Pick<
+  ComicsViewerProps,
+  "handleChangeExpansion" | "initialIsExpansion" | "pages"
+>;
 
-const Comics: FC<ComicsProps> = ({ pages }: ComicsProps) => {
+const Comics: FC<ComicsProps> = ({
+  handleChangeExpansion,
+  initialIsExpansion,
+  pages,
+}: ComicsProps) => {
   const { innerHeight } = useWindowSize();
   const wrapperStyle = useMemo<CSSProperties>(
     () => ({ minHeight: innerHeight }),
@@ -25,7 +32,11 @@ const Comics: FC<ComicsProps> = ({ pages }: ComicsProps) => {
         <div className={styles.heading1Wrapper}>
           <Heading1 />
         </div>
-        <ComicsViewer pages={pages} />
+        <ComicsViewer
+          handleChangeExpansion={handleChangeExpansion}
+          initialIsExpansion={initialIsExpansion}
+          pages={pages}
+        />
         <div className={styles.inner}>
           <div className={styles.articlesWrapper}>
             <article className={`${styles.item} ${styles.detail}`}>

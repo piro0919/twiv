@@ -3,9 +3,18 @@ import ReactComicsViewer, {
   ComicViewerProps as ReactComicViewerProps,
 } from "react-comic-viewer";
 
-export type ComicsViewerProps = Pick<ReactComicViewerProps, "pages">;
+export type ComicsViewerProps = Pick<
+  ReactComicViewerProps,
+  "initialIsExpansion" | "pages"
+> & {
+  handleChangeExpansion: ReactComicViewerProps["onChangeExpansion"];
+};
 
-const ComicsViewer: FC<ComicsViewerProps> = ({ pages }: ComicsViewerProps) => {
+const ComicsViewer: FC<ComicsViewerProps> = ({
+  handleChangeExpansion,
+  initialIsExpansion,
+  pages,
+}: ComicsViewerProps) => {
   const text = useMemo(
     () => ({
       expansion: "拡大",
@@ -16,7 +25,14 @@ const ComicsViewer: FC<ComicsViewerProps> = ({ pages }: ComicsViewerProps) => {
     []
   );
 
-  return <ReactComicsViewer pages={pages} text={text} />;
+  return (
+    <ReactComicsViewer
+      initialIsExpansion={initialIsExpansion}
+      onChangeExpansion={handleChangeExpansion}
+      pages={pages}
+      text={text}
+    />
+  );
 };
 
 export default ComicsViewer;

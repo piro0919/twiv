@@ -1,7 +1,7 @@
 import firebase from "libs/firebase";
 import "firebase/auth";
 
-const uiConfig = {
+const uiConfig: firebaseui.auth.Config = {
   signInFlow: "redirect",
   signInOptions: [firebase.auth.TwitterAuthProvider.PROVIDER_ID],
   signInSuccessUrl: "/",

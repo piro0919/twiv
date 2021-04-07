@@ -1,7 +1,8 @@
+import useLocalstorage from "@rooks/use-localstorage";
 import useWindowSize from "@rooks/use-window-size";
 import { NextSeo } from "next-seo";
-import React, { FC, useMemo } from "react";
-import Comics from "components/templates/Comics";
+import React, { FC, useCallback, useMemo } from "react";
+import Comics, { ComicsProps } from "components/templates/Comics";
 
 const Id: FC = () => {
   const { innerHeight, innerWidth } = useWindowSize();
@@ -9,6 +10,18 @@ const Id: FC = () => {
     innerHeight,
     innerWidth,
   ]);
+  const [isExpansionValue, setIsExpansion] = useLocalstorage(
+    "isExpansion",
+    false
+  );
+  const handleChangeExpansion = useCallback<
+    ComicsProps["handleChangeExpansion"]
+  >(
+    (isExpansion) => {
+      setIsExpansion(isExpansion);
+    },
+    [setIsExpansion]
+  );
 
   return (
     <>
@@ -17,6 +30,8 @@ const Id: FC = () => {
         title="【創作】合コンに行ったら女がいなかった話 | Twiv"
       />
       <Comics
+        handleChangeExpansion={handleChangeExpansion}
+        initialIsExpansion={!!isExpansionValue}
         pages={[
           null,
           "/hoge/01.png",

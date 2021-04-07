@@ -8,8 +8,10 @@ import Public from "components/templates/Public";
 import Top from "components/templates/Top";
 import useAuth from "hooks/useAuth";
 import firebase from "libs/firebase";
+import firebaseAuth from "libs/firebaseAuth";
 import { getIdToken } from "libs/idToken";
 import "firebase/auth";
+import uiConfig from "libs/uiConfig";
 
 export type PagesProps = {
   isSignin: boolean;
@@ -47,7 +49,7 @@ const Pages: FC<PagesProps> = ({ isSignin }: PagesProps) => {
 
   useBottomScrollListener(
     () => {
-      console.log("a");
+      // console.log("a");
     },
     {
       triggerOnNoScroll: true,
@@ -70,7 +72,7 @@ const Pages: FC<PagesProps> = ({ isSignin }: PagesProps) => {
           photoUrl={photoUrl}
         />
       ) : (
-        <Public />
+        <Public firebaseAuth={firebaseAuth} uiConfig={uiConfig} />
       )}
     </>
   );
