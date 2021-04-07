@@ -142,8 +142,8 @@
     }
   },
   "lint-staged": {
-    "*.scss": "npm run lint:style",
-    "*.ts,*.tsx": "npm run lint"
+    "*.scss": "stylelint '**/*.scss'",
+    "*.ts,*.tsx": "eslint . --ext .ts,.tsx "
   },
   "name": "twiv",
   "private": true,
